@@ -1,0 +1,813 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(120deg, #000000, #300000, #500000, #000000);
+    background-size: 400% 400%;
+    animation: backgroundMove 8s ease-in-out infinite;
+}
+
+/* Навигация */
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px;
+}
+
+nav a {
+    padding: 8px 12px;
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #300000;
+    box-shadow: 0 0 12px #300000;
+    transform: translateY(-2px);
+}
+
+/* Главный экран */
+
+.hero {
+    position: relative;
+    margin-top: 100px;
+    text-align: center;
+    animation: appear 1s ease;
+}
+
+h1 {
+    text-align: center;
+    font-size: 55px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-shadow: 0 0 15px #5c0000;
+    animation: appear 1s ease;
+}
+
+p {
+    text-align: center;
+    animation: appear 1s ease 0.3s;
+    animation-fill-mode: backwards;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 25px;
+    color: white;
+    background: #300000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: appear 1s ease 0.6s;
+    animation-fill-mode: backwards;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px #300000;
+}
+
+/* Декор главного экрана */
+
+.hero-decor {
+    position: absolute;
+    top: 50%;
+    color: #8b0000;
+    font-family: monospace;
+    opacity: 0.9;
+    text-shadow: 0 0 15px rgba(139, 0, 0, 0.8);
+    transform: translateY(-50%);
+}
+
+.hero-left {
+    left: 6%;
+    text-align: left;
+}
+
+.hero-left span {
+    display: block;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.hero-left small {
+    font-size: 16px;
+    letter-spacing: 5px;
+}
+
+.hero-right {
+    right: 6%;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.hero-top-decor {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    color: #8b0000;
+    font-family: monospace;
+    font-size: 20px;
+    letter-spacing: 4px;
+    opacity: 0.8;
+    text-shadow: 0 0 12px rgba(139, 0, 0, 0.7);
+    transform: translateX(-50%);
+}
+
+.hero-bottom-decor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 30px auto 0;
+    color: #8b0000;
+    font-family: monospace;
+    font-size: 25px;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.7);
+    white-space: nowrap;
+}
+
+/* Секции */
+
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    text-shadow: 0 0 12px #300000;
+}
+
+/* Обо мне */
+
+#about {
+    max-width: 800px;
+    margin: 300px auto 0;
+    padding: 50px 30px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid #300000;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #180000;
+    transition: 0.3s;
+}
+
+#about:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #300000;
+}
+
+#about h2 {
+    font-size: 40px;
+}
+
+/* Навыки */
+
+#skills {
+    margin-top: 150px;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#skills h2,
+#projects h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.skills-container,
+.projects-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    width: 200px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid #300000;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #180000;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 25px #300000, 0 0 40px rgba(80, 0, 0, 0.4);
+}
+
+.skill-card:hover h3 {
+    text-shadow: 0 0 10px #5c0000;
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.skill-card p,
+.project-card p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 6px;
+    margin-top: 20px;
+    background: #180000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: #5c0000;
+    border-radius: 10px;
+}
+
+.python {
+    width: 40%;
+}
+
+.html {
+    width: 70%;
+}
+
+.css {
+    width: 65%;
+}
+
+.javascript {
+    width: 35%;
+}
+
+/* Проекты */
+
+#projects {
+    margin-top: 150px;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.project-card {
+    position: relative;
+    width: 280px;
+    padding: 30px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid #300000;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #180000;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 25px #300000, 0 0 40px rgba(80, 0, 0, 0.4);
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #5c0000;
+    transform: scaleX(0);
+    transition: 0.3s;
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.project-card button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.project-card button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #300000;
+}
+
+/* Что я умею */
+
+#abilities,
+#journey,
+#goals {
+    text-align: center;
+}
+
+#abilities h2,
+#journey h2,
+#goals h2 {
+    margin-bottom: 40px;
+}
+
+.abilities-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ability-card,
+.journey-item,
+.goal-card {
+    background: rgba(20, 0, 0, 0.8);
+    border: 1px solid #5c0000;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.ability-card {
+    padding: 25px;
+}
+
+.ability-card:hover,
+.journey-item:hover,
+.goal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(92, 0, 0, 0.6);
+}
+
+.ability-card h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.ability-card p {
+    line-height: 1.6;
+}
+
+/* Мой путь */
+
+.journey-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.journey-item {
+    position: relative;
+    padding: 25px 15px;
+}
+
+.journey-item span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.journey-item h3 {
+    margin-bottom: 12px;
+}
+
+.journey-item p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Цели */
+
+.goals-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.goal-card {
+    padding: 30px 20px;
+}
+
+.goal-card span {
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.goal-card h3 {
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+.goal-card p {
+    line-height: 1.6;
+}
+
+/* Контакты */
+
+#contacts {
+    margin-top: 150px;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#contacts h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.contacts-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.contacts-container a {
+    padding: 15px 30px;
+    color: white;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid #300000;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #180000;
+    transition: 0.3s;
+}
+
+.contacts-container a:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px #300000;
+    background: #180000;
+}
+
+.telegram-link {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: none;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.telegram-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.telegram-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.telegram-link span:last-child {
+    display: block;
+    white-space: nowrap;
+}
+
+/* Модальное окно */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    animation: modalFade 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 650px;
+    padding: 30px;
+    background: #111;
+    border: 1px solid #5c0000;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #300000;
+    text-align: center;
+    animation: modalZoom 0.25s ease;
+}
+
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.modal-content p {
+    line-height: 1.6;
+}
+
+#closeModal {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#closeModal:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px #5c0000;
+}
+
+#modal-tech {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 12px;
+    color: #ccc;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border: 1px solid #5c0000;
+    border-radius: 20px;
+}
+
+#modal-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    background: #5c0000;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#modal-link:hover {
+    background: #800000;
+    transform: scale(1.05);
+}
+
+.modal.hide {
+    animation: modalFadeOut 0.2s ease forwards;
+}
+
+/* Кнопка языка */
+
+#languageButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    margin: 0;
+}
+
+/* Кнопка наверх */
+
+#topButton {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 1000;
+    display: none;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+/* Подвал */
+
+footer {
+    margin-top: 100px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid #300000;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Анимации */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 50% 100%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalZoom {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Адаптация для планшетов и телефонов */
+
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 80px;
+        padding: 100px 20px 40px;
+    }
+
+    .hero-left {
+        left: 10px;
+        top: 5%;
+    }
+
+    .hero-right {
+        right: 10px;
+        top: 5%;
+        font-size: 10px;
+    }
+
+    .hero-top-decor {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .hero-bottom-decor {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .abilities-container,
+    .skills-container,
+    .projects-container,
+    .goals-container {
+        grid-template-columns: 1fr;
+    }
+
+    .journey-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+        padding: 10px;
+    }
+
+    nav a {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    #languageButton {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        margin-top: 70px;
+        padding: 30px 15px;
+    }
+
+    .hero-left {
+        left: 10px;
+        top: 10%;
+    }
+
+    .hero-left span {
+        font-size: 35px;
+    }
+
+    .hero-left small {
+        font-size: 10px;
+    }
+
+    .hero-right {
+        right: 10px;
+        top: 10%;
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero-top-decor {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero-bottom-decor {
+        gap: 8px;
+        font-size: 8px;
+    }
+
+    .journey-container {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: auto;
+        max-width: 85%;
+        padding: 25px;
+    }
+}
+#modal-image {
+    display: block;
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    margin: 15px auto;
+    border: 1px solid #5c0000;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #300000;
+}
