@@ -313,6 +313,67 @@ section h2 {
     font-size: 24px;
 }
 
+.project-preview {
+    display: block;
+    width: calc(100% + 60px);
+    height: 170px;
+    margin: -30px -30px 25px;
+    object-fit: cover;
+    border-bottom: 1px solid #300000;
+}
+
+#editing {
+    margin-top: 150px;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#editing h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+#editing > p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.editing-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.editing-item {
+    margin: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid #300000;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #180000;
+    transition: 0.3s;
+}
+
+.editing-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #300000, 0 0 40px rgba(80, 0, 0, 0.4);
+}
+
+.editing-item img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.editing-item figcaption {
+    padding: 15px;
+    font-size: 15px;
+}
+
 .project-card button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -540,6 +601,23 @@ section h2 {
     line-height: 1.6;
 }
 
+#modal-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+#modal-gallery img {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid #300000;
+    background: #080808;
+}
+
 #closeModal {
     position: absolute;
     top: 10px;
@@ -692,6 +770,18 @@ footer p {
 /* Адаптация для планшетов и телефонов */
 
 @media (max-width: 768px) {
+    .editing-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .editing-item img {
+        height: auto;
+        max-height: 330px;
+    }
+
+    .project-preview {
+        height: 180px;
+    }
     .hero {
         margin-top: 80px;
         padding: 100px 20px 40px;

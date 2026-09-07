@@ -132,6 +132,15 @@ const translations = {
         pythonProjectText: "Мой проект на Python.",
         pythonProjectButton: "Подробнее",
 
+        montageProjectTitle: "Монтаж",
+        montageProjectText: "Примеры игрового монтажа и оформления видео.",
+        montageProjectButton: "Подробнее",
+
+        editingTitle: "Монтаж",
+        editingText: "Примеры работ с игровыми видео, нарезками и оформлением превью.",
+        montageCaption1: "Игровой момент",
+        montageCaption2: "Оформление превью",
+
         contactsTitle: "Контакты",
         contactsText: "Связаться со мной можно здесь:",
 
@@ -219,6 +228,15 @@ const translations = {
         pythonProjectText: "My project written in Python.",
         pythonProjectButton: "Learn more",
 
+        montageProjectTitle: "Video Editing",
+        montageProjectText: "Examples of gaming edits and video design.",
+        montageProjectButton: "Learn more",
+
+        editingTitle: "Video Editing",
+        editingText: "Examples of gaming videos, highlights and thumbnail design.",
+        montageCaption1: "Gaming moment",
+        montageCaption2: "Video thumbnail",
+
         contactsTitle: "Contacts",
         contactsText: "You can contact me here:",
 
@@ -292,6 +310,15 @@ const elements = {
     pythonProjectText: document.getElementById("python-project-text"),
     pythonProjectButton: document.getElementById("python-project-button"),
 
+    montageProjectTitle: document.getElementById("montage-project-title"),
+    montageProjectText: document.getElementById("montage-project-text"),
+    montageProjectButton: document.getElementById("montage-project-button"),
+
+    editingTitle: document.getElementById("editing-title"),
+    editingText: document.getElementById("editing-text"),
+    montageCaption1: document.getElementById("montage-caption-1"),
+    montageCaption2: document.getElementById("montage-caption-2"),
+
     contactsTitle: document.getElementById("contacts-title"),
     contactsText: document.getElementById("contacts-text"),
 
@@ -334,17 +361,22 @@ const modalTech = document.getElementById("modal-tech");
 const modalLink = document.getElementById("modal-link");
 const modalImage = document.getElementById("modal-image");
 
-function openModal(title, text, tech, image) {
+function openModal(title, text, tech, images) {
     modalTitle.textContent = title;
     modalText.textContent = text;
     modalTech.textContent = tech;
 
-    if (image) {
-        modalImage.src = image;
-        modalImage.style.display = "block";
-    } else {
-        modalImage.style.display = "none";
-    }
+    const imageList = Array.isArray(images) ? images : (images ? [images] : []);
+    const gallery = document.getElementById("modal-gallery");
+
+    gallery.innerHTML = "";
+
+    imageList.forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `${title} — ${index + 1}`;
+        gallery.appendChild(img);
+    });
 
     modal.style.display = "flex";
 }
@@ -372,6 +404,19 @@ elements.pythonProjectButton.addEventListener("click", event => {
             : "Это мой проект на Python.",
         "Python",
         "./python-project.png"
+    );
+});
+
+elements.montageProjectButton.addEventListener("click", event => {
+    event.preventDefault();
+
+    openModal(
+        english ? "Video Editing" : "Монтаж",
+        english
+            ? "Examples of my gaming video editing and thumbnail design."
+            : "Примеры моего игрового монтажа и оформления превью.",
+        "Video Editing",
+        ["./montage-1.jpg", "./montage-2.jpg"]
     );
 });
 

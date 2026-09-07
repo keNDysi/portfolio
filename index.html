@@ -167,10 +167,35 @@
         </div>
 
         <div class="project-card">
+            <img class="project-preview" src="./python-project.png" alt="Скриншот Python-проекта">
             <h3 id="python-project-title">Python-проект</h3>
             <p id="python-project-text">Мой проект на Python.</p>
             <button id="python-project-button">Подробнее</button>
         </div>
+
+        <div class="project-card">
+            <img class="project-preview" src="./montage-1.jpg" alt="Пример монтажа">
+            <h3 id="montage-project-title">Монтаж</h3>
+            <p id="montage-project-text">Примеры игрового монтажа и оформления видео.</p>
+            <button id="montage-project-button">Подробнее</button>
+        </div>
+    </div>
+</section>
+
+<section id="editing">
+    <h2 id="editing-title">Монтаж</h2>
+    <p id="editing-text">Примеры работ с игровыми видео, нарезками и оформлением превью.</p>
+
+    <div class="editing-gallery">
+        <figure class="editing-item">
+            <img src="./montage-1.jpg" alt="Игровой момент">
+            <figcaption id="montage-caption-1">Игровой момент</figcaption>
+        </figure>
+
+        <figure class="editing-item">
+            <img src="./montage-2.jpg" alt="Превью игрового видео">
+            <figcaption id="montage-caption-2">Оформление превью</figcaption>
+        </figure>
     </div>
 </section>
 
@@ -194,7 +219,9 @@
     <div class="modal-content">
         <span id="closeModal">&times;</span>
         <h2 id="modal-title">Проект</h2>
-        <img id="modal-image" src="./python-project.png" alt="Скриншот проекта">
+        <div id="modal-gallery">
+            <img id="modal-image" src="./python-project.png" alt="Скриншот проекта">
+        </div>
         <p id="modal-text">Описание проекта</p>
         <p id="modal-tech"></p>
         <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer">Открыть проект</a>
